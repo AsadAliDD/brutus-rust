@@ -29,7 +29,7 @@ struct Args {
 }
 
 struct MPI {
-    universe: Option<mpi::environment::Universe>,
+    // universe: Option<mpi::environment::Universe>,
     world: SimpleCommunicator,
     size: mpi::topology::Rank,
     rank: mpi::topology::Rank,
@@ -51,7 +51,7 @@ impl MPI {
 
         // Return the MPI struct instance
         MPI {
-            universe: Some(universe),
+            // universe: Some(universe),
             world,
             size,
             rank,
@@ -60,6 +60,7 @@ impl MPI {
 }
 
 fn brute_force(mpi_instance: &MPI, filename: &String, password: &String, chunk_size: &u16) {
+    
     match mpi_instance.rank {
         0 => {
             println!("Master Process");
